@@ -194,3 +194,72 @@ class DLangLexer(Lexer):
         line = token.lineno
         col = self._find_column(token.index)
         print(f"[LEXICAL ERROR] - line {line}, col {col}: {message}")
+
+
+#############################################
+####         Interactive prompt          ####
+#############################################
+
+def run_lexer_on_file(lexer, path: str) -> bool:
+    path = path.strip().strip('"')
+
+    if not os.path.exists(path):
+        print(f"[ERROR] File not found: {path}\n")
+        return False
+
+    with open(path, "r", encoding="utf-8") as f:
+        program = f.read()
+
+    print(f"---------  Generated tokens from file: {path}  ---------")
+    for tok in lexer.tokenize(program):
+        col = lexer._find_column(tok.index)
+        print(f"{tok.type:<14} value={tok.value!r:<15} Line={tok.lineno:<3} Col={col}")
+    print("--------------------------------------------------------\n")
+    return True
+
+
+def interactive_prompt_run():
+    print(r"""
+    ============================================================
+        Welcome to my DLang Lexer - Interactive shell prompt
+    ============================================================
+
+    How to use:
+    - Type a line of DLang code and press ENTER to tokenize it.
+    - Type :file <path> to tokenize a DLang program stored in a text file.
+    - Type :q and press ENTER to quit.
+
+    ============================================================
+    """.strip("\n"))
+
+    lexer = DLangLexer()
+
+    while True:
+        try:
+            line = input("dlang> ")
+        except EOFError:
+            print()
+            break
+
+        stripped = line.strip()
+
+        if stripped == ":q":
+            break
+
+        if stripped.startswith(":file "):
+            path = stripped[len(":file "):]
+            run_lexer_on_file(lexer, path)
+            continue
+
+        print("-----------------  Generated tokens -----------------")
+        for tok in lexer.tokenize(line):
+            col = lexer._find_column(tok.index)
+            print(f"{tok.type:<14} value={tok.value!r:<15} Line={tok.lineno:<3} Col={col}")
+        print("-----------------------------------------------------\n")
+
+    print("Exiting...")
+
+
+if __name__ == "__main__":
+    interactive_prompt_run()
+
