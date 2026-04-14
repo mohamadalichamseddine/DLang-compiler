@@ -1,0 +1,48 @@
+// ---------- Single-line comment ----------
+
+class MyClass extends Base implements IFace {
+    int x = 10;
+    double y = 45.;
+    double z = 0.45;
+    double w = 45.6E+4;
+
+    bool flag = True;
+    bool other = False;
+
+    string msg = "hello world";
+
+    if (x <= 10 && flag || !other) {
+        Output(msg);
+        Output("inline string");
+    } else {
+        return;
+    }
+
+    /* ---------- Block comment ----------
+       This should be ignored.
+       It ends at the first subsequent */
+    */
+
+    for (x = 0; x < 5; x = x + 1) {
+        // array punctuation + arithmetic
+        ArrayInstance[x] = x * (x + 2) % 3;
+    }
+
+    while (x != 0) {
+        x = x - 1;
+        if (x == 2) break;
+    }
+
+    // input functions (keywords)
+    x = InputInt();
+    msg = InputLine();
+
+    // null / this / new
+    this;
+    null;
+    new MyClass();
+}
+
+"unterminated string
+/* unterminated comment
+@  // illegal character

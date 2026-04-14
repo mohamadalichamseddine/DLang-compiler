@@ -1,0 +1,88 @@
+// test variable declarations
+int a;
+double b;
+bool c;
+string d;
+
+// test functions
+nothing f0(){}
+
+int f1(int a, double b){
+}
+
+int f2(int a, double b, bool c, string d){
+int x;
+double y;
+bool z;
+string s;
+}
+
+bool f3 (bool a, bool b){
+	return a && b;
+}
+
+
+string f4 (int x){
+
+	// testing local variable declarations
+	int local_1;
+	double local_2;
+	bool local_3;
+	string local_4;
+
+	// testing expressions
+	; // Stmt -> <Expr>;
+	a = 300; // Expr -> Constant -> intConstant
+	b = 300.4556; // Expr -> Constant -> doubleConstant
+	c = False; // Expr -> Constant -> boolConstant
+	d = "String constant"; // Expr -> Constant -> stringConstant
+	empty_value= null; // Expr -> Constant -> null
+	number = 200.00; // Expr -> ident = Expr
+	f2(10, 20.5, True, "Hello there!"); // Expr -> Call
+	(100);// Expr ->(Expr)
+	z = 100+4555; // Expr -> Expr + Expr
+    y = 100-4555; // Expr -> Expr - Expr
+    x = 100*4555; // Expr -> Expr * Expr
+	w = 100/4555; // Expr -> Expr / Expr
+ 	v = 100%4555; // Expr -> Expr % Expr
+ 	u = -v; // Expr -> -Expr
+ 	t = x<z; // Expr -> Expr < Expr
+ 	s = x<=z; // Expr -> Expr <= Expr
+ 	q = x>z; // Expr -> Expr > Expr
+ 	p = x>=z; // Expr -> Expr >= Expr
+ 	o = x==z; // Expr -> Expr == Expr
+ 	n = x!=z; // Expr -> Expr != Expr
+ 	m = x&&z; // Expr -> Expr && Expr
+ 	l = x||z; // Expr -> Expr || Expr
+ 	k = !z; // Expr -> !Expr 
+ 	j = InputInt(); // Expr -> InputInt()
+ 	i = InputLine(); // Expr -> InputLine()
+
+ 	// testing various stmts
+ 	
+ 	// if statement
+ 	if((x==z)&& (y<w)){
+ 		a = (x+y)/2;
+ 		x = x-2;
+ 	}
+ 	else
+ 		a = (x-y)/2;
+
+ 	// while statement	
+ 	while(True){
+ 		b = b-1;
+ 		c = b+1;
+ 		}
+
+ 	//for statement	
+ 	for(i=1;i<=100;i=i+1){
+ 		// output statement
+ 		Output(i%2);
+ 	}
+
+    //return statement
+ 	return False;	
+
+ 	// break statement
+ 	break;		
+}
