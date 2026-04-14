@@ -1,0 +1,41 @@
+
+// test type compatibility
+int f1 (int a, int b){
+ 	int c;
+ 	c = a+b;
+ 	return c;
+ }
+
+
+// test safe type conversion
+int f2 (){ 
+	int d;
+	double e;
+	int f;
+	d = 10;
+	e = 300.5;
+	f = d*e; // semantic error: operand type mismatch and unsafe type casting
+	g = d-e; // semantic error: d is used before it is declared
+
+}
+
+// test mismatching return type and return value
+string f3(int x, int y){
+
+	return x+y; // semantic error: mismatch between return type and return value of function
+	
+}
+
+// Added to test string concat
+string f4(string s1, string s2){
+	return s1+s2;
+
+}
+
+// test function related semantic issues
+int main(){
+	f1(3,4); 
+	f1(30.5, 40); // semantic error: type mismatch between actual and formal parameters
+	f1(45); // semantic error: too few parameters to function
+	f3(45,55,65);// semantic error: too many parameters to function
+}
