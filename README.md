@@ -1,12 +1,34 @@
 # DLang Compiler
 
-A compiler implementation for DLang, built in Python.
+A compiler front-end for DLang, implemented in Python using the SLY library.
+The project covers the first three phases of compilation: lexical analysis, syntax analysis, and semantic analysis.
 
-## Dependencies
+## Structure
 
-This project depends on the SLY (Sly Lex Yacc) library, which is included as a Git submodule.
+| File                     | Description                                                                            |
+| ------------------------ | -------------------------------------------------------------------------------------- |
+| `DLangLexer.py`          | Lexical analyzer. Tokenizes DLang source code                                          |
+| `DLangParser.py`         | Syntax analyzer. Parses the token stream and builds an AST                             |
+| `DLangSemanticParser.py` | Semantic analyzer. Type checking, symbol table, declaration and return-type validation |
 
-### Clone the repository
+## Usage
+
+**Lexer** (interactive shell):
+```bash
+python DLangLexer.py
+```
+
+**Parser**:
+```bash
+python DLangParser.py
+```
+
+**Semantic analyzer**:
+```bash
+python DLangSemanticParser.py <source.dlang>
+```
+
+## Clone the repository
 
 To clone this repository along with its dependencies, run:
 
@@ -19,6 +41,10 @@ If you have already cloned the repository without submodules, initialize them wi
 ```bash
 git submodule update --init --recursive
 ```
+
+## Dependencies
+
+This project depends on the SLY (Sly Lex Yacc) library, which is included as a Git submodule.
 
 ### About SLY
 
