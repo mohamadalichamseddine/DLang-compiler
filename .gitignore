@@ -1,0 +1,10 @@
+# Python
+__pycache__/
+
+# sly parser debug output
+parser.out
+*.out
+
+# Virtual environment
+.venv/
+venv/
